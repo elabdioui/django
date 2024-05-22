@@ -1,0 +1,84 @@
+{% extends 'parts/header.html' %}
+{% load static %}
+{% block content %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light p-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="{% static 'image/traverser.png' %}" alt="Brand" width="25px">Vehicule.ma</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Acceuil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact US</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+      {% block content1 %}
+      {% endblock %}
+       
+    </div>
+
+    <footer class="bg-body-tertiary text-center bg-dark text-white">
+        <div class="container p-4">
+            <section class="mb-4">
+                <ul class="wrapper text-dark">
+                    <li class="icon facebook">
+                        <span class="tooltip">Facebook</span>
+                        <span><i class="fab fa-facebook"></i></span>
+                    </li>
+                    <li class="icon twitter">
+                        <span class="tooltip">Twitter</span>
+                        <span><i class="fab fa-twitter"></i></span>
+                    </li>
+                    <li class="icon location">
+                        <span class="tooltip">Location</span>
+                        <span><i class="fa-solid fa-location-dot"></i></span>
+                    </li>
+                    <li class="icon instagram">
+                        <span class="tooltip">Instagram</span>
+                        <span><i class="fab fa-instagram"></i></span>
+                    </li>
+                    <li class="icon tiktok">
+                        <span class="tooltip">Tiktok</span>
+                        <span><i class="fab fa-tiktok"></i></span>
+                    </li>
+                    <li class="icon youtube">
+                        <span class="tooltip">Youtube</span>
+                        <span><i class="fab fa-youtube"></i></span>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="mb-4">
+                <p>
+                    Adresse :
+                    123 Rue des Orangers 75001 Casablanca, Maroc <br>
+                    
+                    Contact :
+                    Téléphone : +212 6 78 75 03 89 
+                    Email : contact@nomdelentreprise.com     <br>
+                    
+                    Heures d'ouverture :
+                    Lundi - Vendredi : 9h00 - 18h00
+                    Samedi : 10h00 - 16h00
+                    Dimanche : Fermé
+                </p>
+            
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2024 Copyright:
+            <span class="text-reset fw-bold">MaVoiture.com</span>
+        </div>
+    </footer>
+{% endblock %}
