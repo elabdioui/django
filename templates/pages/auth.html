@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auth Form</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+<script src="{% static 'js/auth.js' %}"></script>
+</head>
+<body>
+  <div class="auth_forms">
+    <div class="center-container_wrapper">
+      <div class="container_wrapper" id="container_wrapper">
+        <button class="btn btn-light btn-close-auth" id="btn-close-auth" style="display: none;">close</button>
+        <div class="form-container_wrapper sign-up-container_wrapper">
+          {% crsf_token %}
+          <form class="auth_form" id="registerForm">
+            <h1 id="log_title">Create Account</h1><br/>
+            <input type="text" placeholder="Name" class="placeholder user" id="name" onchange="combined_tester()" required/>
+            <input type="email" placeholder="Email" class="placeholder email" id="email" onchange="mail_tester()" required/><img width=25px src="{% static 'image/correct.png' %}"alt="error" class="mail_ready">
+            <span class="text-danger mail_error"> Error : Please follow right email format</span> <img width=25px src="{%static 'image/traverser.png' %}" alt="error" class="mail_error">
+            <input type="password" placeholder="Password" class="placeholder pass" id="password" onchange="psw_tester()" required/> <img width=25px src="{% static 'image/correct.png' %}" alt="error" class="psw_ready">
+            <span class="text-danger psw_error">Error : Please follow right password format <img width=25px src="{%static 'image/traverser.png' %}" alt="error" class="psw_error">Example: <span id="generated_password" class="text-dark"></span></span>
+            <button id="generate-btn" class="btn btn-secondary generate-btn m-2" type="button">Generate Password</button>
+            <div>            
+              <span class="text-success form_ready">ALL SET!</span> <img width="25px" src="{% static 'image/correct.png' %}" alt="CheckMark" class="form_ready">
+            </div>
+            <button id="signup_auth" class="auth_button" disabled="disabled">Sign Up</button>
+          </form>
+        </div>
+        <div class="form-container_wrapper sign-in-container_wrapper">
+          {% crsf_token %}
+          <form class="auth_form" id="loginForm">
+            <h1 id="log_title">Sign in</h1>
+            <div class="social-container_wrapper"></div>
+            <input type="email" placeholder="Email" class="placeholder email" id="login_email" onchange="login_mail_tester()" required/><img width=30px src="{% static 'image/correct.png' %}" alt="error" class="login_mail_ready">
+            <span class="text-danger login_mail_error"> Error : Please follow right email format</span> <img width=25px src="{%static 'image/traverser.png' %}" alt="error" class="login_mail_error">
+            <input type="password" placeholder="Password" class="placeholder pass" id="login_password" onchange="login_psw_tester()" required/> <img width=25px src="{% static 'image/correct.png' %}"" alt="error" class="login_psw_ready">
+            <span class="text-danger login_psw_error m-1">Error : Please follow right password format <img width=25px src="{%static 'image/traverser.png' %}" alt="error" class="login_psw_error"><br></span>
+            <a href="#" id="reset">Can't remember your password?</a>
+            <button id="signin_auth" class="auth_button" disabled="disabled">Sign In</button>
+          </form>
+        </div>
+        <div class="overlay-container_wrapper">
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <h1>Already a member?</h1>
+              <p>Login now and unlock the exclusive offers tailored just for YOU!</p>
+              <button class="auth_button_ghost" id="signin_ghost">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+              <h1>New to our family?</h1>
+              <p>Join us NOW and discover the warmth of the fabric wonderland!</p>
+              <button class="auth_button_ghost" id="signup_ghost">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
